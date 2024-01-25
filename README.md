@@ -1,7 +1,7 @@
 # MiSelf
 Python script for modeling evolutionary dynamics of selfish mitochondrial genomes.
 
-This document provides guidance on formatting input files for the MiSelf script (see supplementary data files, Gitschlag et al. 2024, for example input files).
+This document provides guidance on formatting input files for the MiSelf script (to see example input files, see supplementary data files of Gitschlag et al. 2024).
 
 STATISTICS INPUT:
 
