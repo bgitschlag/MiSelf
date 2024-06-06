@@ -539,9 +539,18 @@ if __name__ == '__main__':
         # GENERATE & SAVE FUNCTIONS OF PARAMETERS (FITNESS & FREQUENCY DISTRIBUTIONS & DESCRIPTIVE STATISTICS):
         if genotype == 'simulated_genotype':
             dtp = 'ground_truth'
+            labeling = f'a{round(a, 3)}_b{round(b, 3)}_g{round(g, 3)}_d{round(d, 3)}_e{round(e, 3)}'
+            res = res + f'/{genotype}_results_for_{labeling}'
+            if not os.path.exists(res):
+                os.makedirs(res)
+            b_res = res + f'/{genotype}_bootstrap_results_for_{labeling}/' \
+                          f'{genotype}_data_for_{iboot}_intra_{replicates}_org'
+            if not os.path.exists(b_res):
+                os.makedirs(b_res)
             functions_of_parameters(genotype, par_tbl, labels, res, z_200, z_mu, "theoretical_parameters")
         else:
             dtp = 'empirical'
+            b_res = res
             par_var_n = vary_n(par_tbl, labels, n)
             functions_of_parameters(genotype, par_var_n, labels, res, z_200, z_mu, "log2_scale_var_N_to_1k")
             functions_of_parameters(genotype, par_tbl, labels, res, z_200, z_mu, "function_of_max_l_parameters")
@@ -570,13 +579,7 @@ if __name__ == '__main__':
         # ESTIMATE MODEL PARAMETERS VALUES & GENERATE POPULATION GENETIC STATISTICS ON SIMULATED (BOOTSTRAP) DATA:
         if run_bootstrapping:
             print("bootstrapping has begun")
-            if genotype == 'simulated_genotype':
-                labeling = f'a{round(a, 3)}_b{round(b, 3)}_g{round(g, 3)}_d{round(d, 3)}_e{round(e, 3)}'
-                res = dir + f'/Results/{genotype}_results/{genotype}_bootstrap_results_for_{labeling}/' \
-                            f'{genotype}_data_for_{iboot}_intra_{replicates}_org'
-                if not os.path.exists(res):
-                    os.makedirs(res)
-            bsp = bootstrap_parameters(genotype, res, labels, pgm, z_steps(n), z_mu, n, a, b, g, d, e, i, l,
+            bsp = bootstrap_parameters(genotype, b_res, labels, pgm, z_steps(n), z_mu, n, a, b, g, d, e, i, l,
                                        ipool, dboot, iboot, log_ratio, duration, replicates, min_n, max_n)
         sim_res_csv = (res + f'/{genotype}_dist{dboot}_intra{iboot}_org{replicates}_sim_results.csv')
         if os.path.exists(sim_res_csv):
