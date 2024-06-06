@@ -581,7 +581,7 @@ if __name__ == '__main__':
             print("bootstrapping has begun")
             bsp = bootstrap_parameters(genotype, b_res, labels, pgm, z_steps(n), z_mu, n, a, b, g, d, e, i, l,
                                        ipool, dboot, iboot, log_ratio, duration, replicates, min_n, max_n)
-        sim_res_csv = (res + f'/{genotype}_dist{dboot}_intra{iboot}_org{replicates}_sim_results.csv')
+        sim_res_csv = (b_res + f'/{genotype}_dist{dboot}_intra{iboot}_org{replicates}_sim_results.csv')
         if os.path.exists(sim_res_csv):
             sim_res = pd.read_csv(sim_res_csv)
             eq_z_m = pd.read_csv(res + f'/{genotype}_freq_at_multilevel_balancing.csv')
