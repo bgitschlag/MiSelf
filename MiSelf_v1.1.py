@@ -56,7 +56,7 @@ bootstrap_reps = 10
 
 
 # SPECIFY WORKING FILE DIRECTORY AND IMPORT DATA FOR ANALYSIS:
-dir = '/WORKING_DIRECTORY'
+dir = '.'
 distributions = pd.read_csv(dir + '/Source_data/mutant_frequency_samples_source_data.csv')
 
 
