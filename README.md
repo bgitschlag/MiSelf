@@ -1,7 +1,11 @@
 # MiSelf
-This document provides guidance on modeling evolutionary dynamics of selfish mitochondrial genomes, using the MiSelf Python script.
+This document provides guidance on modeling evolutionary dynamics of selfish mitochondrial genomes, using the MiSelf ("MItochondrial SELFish genomes") Python script.
 
-The MiSelf script is prepared to be run from the terminal, from a working directory that contains the sub-directory /Source_data, which will require three input data files (example input data can be downloaded from https://github.com/bgitschlag/MiSelf/Gitschlag_et_al_2024_SOURCE_DATA.zip):
+The MiSelf script is prepared to be run from the terminal:
+```
+python3 /DIRECTORY/MiSelf.py
+```
+Be sure to run MiSelf from a working directory that contains the sub-directory /Source_data, which will require three input data files (example input data can be downloaded from https://github.com/bgitschlag/MiSelf/Gitschlag_et_al_2024_SOURCE_DATA.zip):
 
 1. INTRA-ORGANISMAL SELECTION DATA. The files are called as
 ```
